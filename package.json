@@ -1,0 +1,73 @@
+{
+  "name": "@paypal/installments-components",
+  "version": "1.0.0",
+  "description": "PayPal Installments Components.",
+  "main": "index.js",
+  "scripts": {
+    "babel": "babel ./server --ignore=node_modules --out-dir ./server",
+    "build": "npm run test && npm run webpack",
+    "clean": "rimraf dist coverage",
+    "debug": "cross-env NODE_ENV=debug",
+    "flow": "flow",
+    "flow-typed": "rm -rf ./flow-typed && flow-typed install && flow-typed install express@4.16 && sed -i -e 's/http$IncomingMessage,/http$IncomingMessage<>,/g' ./flow-typed/npm/express_v4.16.x.js",
+    "karma": "cross-env NODE_ENV=test babel-node --plugins=transform-es2015-modules-commonjs",
+    "lint": "eslint src/ server/ *.js",
+    "reinstall": "rimraf flow-typed && rimraf node_modules && npm install && flow-typed install",
+    "release": "./publish.sh",
+    "release:major": "./publish.sh major",
+    "release:minor": "./publish.sh minor",
+    "release:patch": "./publish.sh patch",
+    "setup": "npm install && npm run flow-typed",
+    "test": "npm run lint && npm run flow-typed && npm run flow",
+    "webpack": "babel-node --plugins=transform-es2015-modules-commonjs ./node_modules/.bin/webpack --progress",
+    "jest": "jest test/server --env=node --no-cache --coverage --collectCoverageFrom='server/' --verbose --runInBand --silent=false",
+    "prepublishOnly": "npm run babel",
+    "postpublish": "rm -rf ./server && git checkout ./server"
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "server/",
+    "__sdk__.js"
+  ],
+  "browserslist": [
+    "IE >= 9",
+    "chrome >= 27",
+    "firefox >= 30",
+    "safari >= 5",
+    "opera >= 23"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/paypal/paypal-sdk-client.git"
+  },
+  "keywords": [
+    "template"
+  ],
+  "licenses": [
+    {
+      "type": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  ],
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "@paypal/sdk-client": "^4.0.122",
+    "@paypal/sdk-constants": "^1.0.57",
+    "belter": "^1.0.16",
+    "cross-domain-utils": "^2.0.27",
+    "zalgo-promise": "^1.0.28",
+    "preact": "^10",
+    "typed-graphqlify": "^2.2.3",
+    "grabthar": "^4"
+  },
+  "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "cheerio": "^1.0.0-rc.3",
+    "flow-bin": "^0.130.0",
+    "grumbler-scripts": "^3",
+    "mocha": "^4",
+    "webpack-mem-compile": "^1.0.2",
+    "sync-browser-mocks": "^2.0.0"
+  }
+}
