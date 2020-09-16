@@ -17,7 +17,7 @@ type SmartWebpackConfig = {|
     libraryTarget? : string
 |};
 
-function getSmartWebpackConfig({ entry, env, filename, minify = true, debug = false, libraryTarget = 'window' } : SmartWebpackConfig) : Object {
+function getSmartWebpackConfig({ entry, env, filename, minify = true, debug = false, libraryTarget = 'window', vars } : SmartWebpackConfig) : Object {
     return getWebpackConfig({
         env,
         entry:         `${ __dirname }/${ entry }`,
@@ -26,7 +26,7 @@ function getSmartWebpackConfig({ entry, env, filename, minify = true, debug = fa
         minify,
         debug,
         libraryTarget,
-        vars:          globals,
+        vars,
         sourcemaps:    false
     });
 }
@@ -54,6 +54,7 @@ export const WEBPACK_CONFIG_INSTALLMENTS_DEBUG = getSmartWebpackConfig({
 });
 
 export const WEBPACK_CONFIG_TEST = getWebpackConfig({
+    entry:      `${ __dirname }/src/ui`,
     modulename: MODULE_NAME,
     test:       true,
     options:    {
