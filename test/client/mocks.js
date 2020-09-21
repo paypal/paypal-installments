@@ -11,7 +11,7 @@ export function setupMocks() {
     window.xprops.close = () => {};
 }
 
-export function setData({ key='DISCOUNT', onPay=()=>{}, onClose=()=>{}, onCancel=()=>{} } : { key?: String, onPay?:Function, onClose?:Function, onCancel?:Function }) {
+export function setData({ onPay=()=>{}, onClose=()=>{}, onCancel=()=>{} } : { onPay?:Function, onClose?:Function, onCancel?:Function }) {
     const variation  = {
         'DISCOUNT' : {
             "cartAmount":"$5,000.00 MXN",
@@ -36,7 +36,7 @@ export function setData({ key='DISCOUNT', onPay=()=>{}, onClose=()=>{}, onCancel
     }
 
     window.xprops.data = {
-        ...variation[key],
+        ...variation['DISCOUNT'],
         onPay,
         onClose,
         onCancel

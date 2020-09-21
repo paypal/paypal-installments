@@ -42,7 +42,6 @@ export const FPTI_STATE = {
 };
 
 export const FPTI_TRANSITION = {
-    INSTALLMENTS_ELIGIBLE:    ('installments_eligible' : 'installments_eligible'),
     INSTALLMENTS_LOAD:        ('installments_load' : 'installments_load'),
     INSTALLMENT_SELECT:       ('installment_select' : 'installment_select'),
     INSTALLMENTS_PAY:         ('installments_pay' : 'installments_pay'),

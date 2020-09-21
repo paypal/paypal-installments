@@ -1,7 +1,9 @@
-PayPal Installments Components
+PayPal Installments
 -------------------------
+PayPal Installments application, including:
 
-
+- Server-side middleware to return the client UI
+- Interface to initiate the flow
 
 
 Quick Start
@@ -10,14 +12,13 @@ Quick Start
 #### Installing
 
 ```bash
-npm install --save @paypal/installments-components
+npm install --save @paypal/installments
 ```
 
 #### Getting Started
 
 - Fork the module
-- Run setup: `npm run setup`
-- Start editing code in `./src` and writing tests in `./tests`
+- Start editing code in `./src` and `./server` and writing tests in `./tests`
 - `npm run build`
 
 #### Building

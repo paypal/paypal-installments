@@ -67,18 +67,18 @@ window.installmentsModal = function(modules) {
         for (var u in l) n[u] = l[u];
         return n;
     }
-    function a(n) {
+    function preact_module_a(n) {
         var l = n.parentNode;
         l && l.removeChild(n);
     }
-    function v(n, l, u) {
+    function h(n, l, u) {
         var i, t, o, r = arguments, f = {};
         for (o in l) "key" == o ? i = l[o] : "ref" == o ? t = l[o] : f[o] = l[o];
         if (arguments.length > 3) for (u = [ u ], o = 3; o < arguments.length; o++) u.push(r[o]);
         if (null != u && (f.children = u), "function" == typeof n && null != n.defaultProps) for (o in n.defaultProps) void 0 === f[o] && (f[o] = n.defaultProps[o]);
-        return h(n, f, i, t, null);
+        return v(n, f, i, t, null);
     }
-    function h(l, u, i, t, o) {
+    function v(l, u, i, t, o) {
         var r = {
             type: l,
             props: u,
@@ -90,6 +90,7 @@ window.installmentsModal = function(modules) {
             __e: null,
             __d: void 0,
             __c: null,
+            __h: null,
             constructor: void 0,
             __v: o
         };
@@ -117,23 +118,23 @@ window.installmentsModal = function(modules) {
         }
     }
     function k(l) {
-        (!l.__d && (l.__d = !0) && preact_module_u.push(l) && !m.__r++ || preact_module_t !== n.debounceRendering) && ((preact_module_t = n.debounceRendering) || preact_module_i)(m);
+        (!l.__d && (l.__d = !0) && preact_module_u.push(l) && !g.__r++ || preact_module_t !== n.debounceRendering) && ((preact_module_t = n.debounceRendering) || preact_module_i)(g);
     }
-    function m() {
-        for (var n; m.__r = preact_module_u.length; ) n = preact_module_u.sort((function(n, l) {
+    function g() {
+        for (var n; g.__r = preact_module_u.length; ) n = preact_module_u.sort((function(n, l) {
             return n.__v.__b - l.__v.__b;
         })), preact_module_u = [], n.some((function(n) {
             var l, u, i, t, o, r, f;
             n.__d && (r = (o = (l = n).__v).__e, (f = l.__P) && (u = [], (i = s({}, o)).__v = i, 
-            t = T(f, o, i, l.__n, void 0 !== f.ownerSVGElement, null, u, null == r ? _(o) : r), 
-            $(u, o), t != r && w(o)));
+            t = $(f, o, i, l.__n, void 0 !== f.ownerSVGElement, null != o.__h ? [ r ] : null, u, null == r ? _(o) : r, o.__h), 
+            j(u, o), t != r && w(o)));
         }));
     }
-    function g(n, l, u, i, t, o, r, c, s, v) {
-        var y, d, w, k, m, g, b, A = i && i.__k || e, P = A.length;
-        for (s == f && (s = null != r ? r[0] : P ? _(i, 0) : null), u.__k = [], y = 0; y < l.length; y++) if (null != (k = u.__k[y] = null == (k = l[y]) || "boolean" == typeof k ? null : "string" == typeof k || "number" == typeof k ? h(null, k, null, null, k) : Array.isArray(k) ? h(p, {
+    function m(n, l, u, i, t, o, r, c, s, h) {
+        var y, d, w, k, g, m, b, A = i && i.__k || e, P = A.length;
+        for (s == f && (s = null != r ? r[0] : P ? _(i, 0) : null), u.__k = [], y = 0; y < l.length; y++) if (null != (k = u.__k[y] = null == (k = l[y]) || "boolean" == typeof k ? null : "string" == typeof k || "number" == typeof k ? v(null, k, null, null, k) : Array.isArray(k) ? v(p, {
             children: k
-        }, null, null, null) : null != k.__e || null != k.__c ? h(k.type, k.props, k.key, null, k.__v) : k)) {
+        }, null, null, null) : null != k.__e || null != k.__c ? v(k.type, k.props, k.key, null, k.__v) : k)) {
             if (k.__ = u, k.__b = u.__b + 1, null === (w = A[y]) || w && k.key == w.key && k.type === w.type) A[y] = void 0; else for (d = 0; d < P; d++) {
                 if ((w = A[d]) && k.key == w.key && k.type === w.type) {
                     A[d] = void 0;
@@ -141,13 +142,13 @@ window.installmentsModal = function(modules) {
                 }
                 w = null;
             }
-            m = T(n, k, w = w || f, t, o, r, c, s, v), (d = k.ref) && w.ref != d && (b || (b = []), 
-            w.ref && b.push(w.ref, null, k), b.push(d, k.__c || m, k)), null != m ? (null == g && (g = m), 
-            s = x(n, k, w, A, r, m, s), v || "option" != u.type ? "function" == typeof u.type && (u.__d = s) : n.value = "") : s && w.__e == s && s.parentNode != n && (s = _(w));
+            g = $(n, k, w = w || f, t, o, r, c, s, h), (d = k.ref) && w.ref != d && (b || (b = []), 
+            w.ref && b.push(w.ref, null, k), b.push(d, k.__c || g, k)), null != g ? (null == m && (m = g), 
+            s = x(n, k, w, A, r, g, s), h || "option" != u.type ? "function" == typeof u.type && (u.__d = s) : n.value = "") : s && w.__e == s && s.parentNode != n && (s = _(w));
         }
-        if (u.__e = g, null != r && "function" != typeof u.type) for (y = r.length; y--; ) null != r[y] && a(r[y]);
-        for (y = P; y--; ) null != A[y] && I(A[y], A[y]);
-        if (b) for (y = 0; y < b.length; y++) H(b[y], b[++y], b[++y]);
+        if (u.__e = m, null != r && "function" != typeof u.type) for (y = r.length; y--; ) null != r[y] && preact_module_a(r[y]);
+        for (y = P; y--; ) null != A[y] && L(A[y], A[y]);
+        if (b) for (y = 0; y < b.length; y++) I(b[y], b[++y], b[++y]);
     }
     function x(n, l, u, i, t, o, r) {
         var f, e, c;
@@ -162,58 +163,63 @@ window.installmentsModal = function(modules) {
         "-" === l[0] ? n.setProperty(l, u) : n[l] = null == u ? "" : "number" != typeof u || c.test(l) ? u : u + "px";
     }
     function C(n, l, u, i, t) {
-        var o, r;
-        if (t && "className" == l && (l = "class"), "style" === l) if ("string" == typeof u) n.style = u; else {
-            if ("string" == typeof i && (n.style = i = ""), i) for (l in i) u && l in u || P(n.style, l, "");
+        var o, r, f;
+        if (t && "className" == l && (l = "class"), "style" === l) if ("string" == typeof u) n.style.cssText = u; else {
+            if ("string" == typeof i && (n.style.cssText = i = ""), i) for (l in i) u && l in u || P(n.style, l, "");
             if (u) for (l in u) i && u[l] === i[l] || P(n.style, l, u[l]);
         } else "o" === l[0] && "n" === l[1] ? (o = l !== (l = l.replace(/Capture$/, "")), 
-        (r = l.toLowerCase()) in n && (l = r), l = l.slice(2), n.l || (n.l = {}), n.l[l] = u, 
-        u ? i || n.addEventListener(l, z, o) : n.removeEventListener(l, z, o)) : "list" !== l && "tagName" !== l && "form" !== l && "type" !== l && "size" !== l && "download" !== l && "href" !== l && !t && l in n ? n[l] = null == u ? "" : u : "function" != typeof u && "dangerouslySetInnerHTML" !== l && (l !== (l = l.replace(/xlink:?/, "")) ? null == u || !1 === u ? n.removeAttributeNS("http://www.w3.org/1999/xlink", l.toLowerCase()) : n.setAttributeNS("http://www.w3.org/1999/xlink", l.toLowerCase(), u) : null == u || !1 === u && !/^ar/.test(l) ? n.removeAttribute(l) : n.setAttribute(l, u));
+        (r = l.toLowerCase()) in n && (l = r), l = l.slice(2), n.l || (n.l = {}), n.l[l + o] = u, 
+        f = o ? N : z, u ? i || n.addEventListener(l, f, o) : n.removeEventListener(l, f, o)) : "list" !== l && "tagName" !== l && "form" !== l && "type" !== l && "size" !== l && "download" !== l && "href" !== l && !t && l in n ? n[l] = null == u ? "" : u : "function" != typeof u && "dangerouslySetInnerHTML" !== l && (l !== (l = l.replace(/xlink:?/, "")) ? null == u || !1 === u ? n.removeAttributeNS("http://www.w3.org/1999/xlink", l.toLowerCase()) : n.setAttributeNS("http://www.w3.org/1999/xlink", l.toLowerCase(), u) : null == u || !1 === u && !/^ar/.test(l) ? n.removeAttribute(l) : n.setAttribute(l, u));
     }
     function z(l) {
-        this.l[l.type](n.event ? n.event(l) : l);
+        this.l[l.type + !1](n.event ? n.event(l) : l);
     }
-    function N(n, l, u) {
+    function N(l) {
+        this.l[l.type + !0](n.event ? n.event(l) : l);
+    }
+    function T(n, l, u) {
         var i, t;
-        for (i = 0; i < n.__k.length; i++) (t = n.__k[i]) && (t.__ = n, t.__e && ("function" == typeof t.type && t.__k.length > 1 && N(t, l, u), 
+        for (i = 0; i < n.__k.length; i++) (t = n.__k[i]) && (t.__ = n, t.__e && ("function" == typeof t.type && t.__k.length > 1 && T(t, l, u), 
         l = x(u, t, t, n.__k, null, t.__e, l), "function" == typeof n.type && (n.__d = l)));
     }
-    function T(l, u, i, t, o, r, f, e, c) {
-        var a, v, h, y, _, w, k, m, b, x, A, P = u.type;
+    function $(l, u, i, t, o, r, f, e, c) {
+        var a, h, v, y, _, w, k, g, b, x, A, P = u.type;
         if (void 0 !== u.constructor) return null;
-        (a = n.__b) && a(u);
+        null != i.__h && (c = i.__h, e = u.__e = i.__e, u.__h = null, r = [ e ]), (a = n.__b) && a(u);
         try {
             n: if ("function" == typeof P) {
-                if (m = u.props, b = (a = P.contextType) && t[a.__c], x = a ? b ? b.props.value : a.__ : t, 
-                i.__c ? k = (v = u.__c = i.__c).__ = v.__E : ("prototype" in P && P.prototype.render ? u.__c = v = new P(m, x) : (u.__c = v = new d(m, x), 
-                v.constructor = P, v.render = L), b && b.sub(v), v.props = m, v.state || (v.state = {}), 
-                v.context = x, v.__n = t, h = v.__d = !0, v.__h = []), null == v.__s && (v.__s = v.state), 
-                null != P.getDerivedStateFromProps && (v.__s == v.state && (v.__s = s({}, v.__s)), 
-                s(v.__s, P.getDerivedStateFromProps(m, v.__s))), y = v.props, _ = v.state, h) null == P.getDerivedStateFromProps && null != v.componentWillMount && v.componentWillMount(), 
-                null != v.componentDidMount && v.__h.push(v.componentDidMount); else {
-                    if (null == P.getDerivedStateFromProps && m !== y && null != v.componentWillReceiveProps && v.componentWillReceiveProps(m, x), 
-                    !v.__e && null != v.shouldComponentUpdate && !1 === v.shouldComponentUpdate(m, v.__s, x) || u.__v === i.__v) {
-                        v.props = m, v.state = v.__s, u.__v !== i.__v && (v.__d = !1), v.__v = u, u.__e = i.__e, 
-                        u.__k = i.__k, v.__h.length && f.push(v), N(u, e, l);
+                if (g = u.props, b = (a = P.contextType) && t[a.__c], x = a ? b ? b.props.value : a.__ : t, 
+                i.__c ? k = (h = u.__c = i.__c).__ = h.__E : ("prototype" in P && P.prototype.render ? u.__c = h = new P(g, x) : (u.__c = h = new d(g, x), 
+                h.constructor = P, h.render = M), b && b.sub(h), h.props = g, h.state || (h.state = {}), 
+                h.context = x, h.__n = t, v = h.__d = !0, h.__h = []), null == h.__s && (h.__s = h.state), 
+                null != P.getDerivedStateFromProps && (h.__s == h.state && (h.__s = s({}, h.__s)), 
+                s(h.__s, P.getDerivedStateFromProps(g, h.__s))), y = h.props, _ = h.state, v) null == P.getDerivedStateFromProps && null != h.componentWillMount && h.componentWillMount(), 
+                null != h.componentDidMount && h.__h.push(h.componentDidMount); else {
+                    if (null == P.getDerivedStateFromProps && g !== y && null != h.componentWillReceiveProps && h.componentWillReceiveProps(g, x), 
+                    !h.__e && null != h.shouldComponentUpdate && !1 === h.shouldComponentUpdate(g, h.__s, x) || u.__v === i.__v) {
+                        h.props = g, h.state = h.__s, u.__v !== i.__v && (h.__d = !1), h.__v = u, u.__e = i.__e, 
+                        u.__k = i.__k, h.__h.length && f.push(h), T(u, e, l);
                         break n;
                     }
-                    null != v.componentWillUpdate && v.componentWillUpdate(m, v.__s, x), null != v.componentDidUpdate && v.__h.push((function() {
-                        v.componentDidUpdate(y, _, w);
+                    null != h.componentWillUpdate && h.componentWillUpdate(g, h.__s, x), null != h.componentDidUpdate && h.__h.push((function() {
+                        h.componentDidUpdate(y, _, w);
                     }));
                 }
-                v.context = x, v.props = m, v.state = v.__s, (a = n.__r) && a(u), v.__d = !1, v.__v = u, 
-                v.__P = l, a = v.render(v.props, v.state, v.context), v.state = v.__s, null != v.getChildContext && (t = s(s({}, t), v.getChildContext())), 
-                h || null == v.getSnapshotBeforeUpdate || (w = v.getSnapshotBeforeUpdate(y, _)), 
-                A = null != a && a.type == p && null == a.key ? a.props.children : a, g(l, Array.isArray(A) ? A : [ A ], u, i, t, o, r, f, e, c), 
-                v.base = u.__e, v.__h.length && f.push(v), k && (v.__E = v.__ = null), v.__e = !1;
-            } else null == r && u.__v === i.__v ? (u.__k = i.__k, u.__e = i.__e) : u.__e = j(i.__e, u, i, t, o, r, f, c);
+                h.context = x, h.props = g, h.state = h.__s, (a = n.__r) && a(u), h.__d = !1, h.__v = u, 
+                h.__P = l, a = h.render(h.props, h.state, h.context), h.state = h.__s, null != h.getChildContext && (t = s(s({}, t), h.getChildContext())), 
+                v || null == h.getSnapshotBeforeUpdate || (w = h.getSnapshotBeforeUpdate(y, _)), 
+                A = null != a && a.type == p && null == a.key ? a.props.children : a, m(l, Array.isArray(A) ? A : [ A ], u, i, t, o, r, f, e, c), 
+                h.base = u.__e, u.__h = null, h.__h.length && f.push(h), k && (h.__E = h.__ = null), 
+                h.__e = !1;
+            } else null == r && u.__v === i.__v ? (u.__k = i.__k, u.__e = i.__e) : u.__e = H(i.__e, u, i, t, o, r, f, c);
             (a = n.diffed) && a(u);
         } catch (l) {
-            u.__v = null, n.__e(l, u, i);
+            u.__v = null, (c || null != r) && (u.__e = e, u.__h = !!c, r[r.indexOf(e)] = null), 
+            n.__e(l, u, i);
         }
         return u.__e;
     }
-    function $(l, u) {
+    function j(l, u) {
         n.__c && n.__c(u, l), l.some((function(u) {
             try {
                 l = u.__h, u.__h = [], l.some((function(n) {
@@ -224,8 +230,8 @@ window.installmentsModal = function(modules) {
             }
         }));
     }
-    function j(n, l, u, i, t, o, r, c) {
-        var s, a, v, h, y, p = u.props, d = l.props;
+    function H(n, l, u, i, t, o, r, c) {
+        var s, a, h, v, y, p = u.props, d = l.props;
         if (t = "svg" === l.type || t, null != o) for (s = 0; s < o.length; s++) if (null != (a = o[s]) && ((null === l.type ? 3 === a.nodeType : a.localName === l.type) || n == a)) {
             n = a, o[s] = null;
             break;
@@ -236,32 +242,32 @@ window.installmentsModal = function(modules) {
                 is: d.is
             }), o = null, c = !1;
         }
-        if (null === l.type) p !== d && n.data !== d && (n.data = d); else {
-            if (null != o && (o = e.slice.call(n.childNodes)), v = (p = u.props || f).dangerouslySetInnerHTML, 
-            h = d.dangerouslySetInnerHTML, !c) {
+        if (null === l.type) p === d || c && n.data === d || (n.data = d); else {
+            if (null != o && (o = e.slice.call(n.childNodes)), h = (p = u.props || f).dangerouslySetInnerHTML, 
+            v = d.dangerouslySetInnerHTML, !c) {
                 if (null != o) for (p = {}, y = 0; y < n.attributes.length; y++) p[n.attributes[y].name] = n.attributes[y].value;
-                (h || v) && (h && v && h.__html == v.__html || (n.innerHTML = h && h.__html || ""));
+                (v || h) && (v && (h && v.__html == h.__html || v.__html === n.innerHTML) || (n.innerHTML = v && v.__html || ""));
             }
             (function(n, l, u, i, t) {
                 var o;
                 for (o in u) "children" === o || "key" === o || o in l || C(n, o, null, u[o], i);
                 for (o in l) t && "function" != typeof l[o] || "children" === o || "key" === o || "value" === o || "checked" === o || u[o] === l[o] || C(n, o, l[o], u[o], i);
-            })(n, d, p, t, c), h ? l.__k = [] : (s = l.props.children, g(n, Array.isArray(s) ? s : [ s ], l, u, i, "foreignObject" !== l.type && t, o, r, f, c)), 
-            c || ("value" in d && void 0 !== (s = d.value) && s !== n.value && C(n, "value", s, p.value, !1), 
+            })(n, d, p, t, c), v ? l.__k = [] : (s = l.props.children, m(n, Array.isArray(s) ? s : [ s ], l, u, i, "foreignObject" !== l.type && t, o, r, f, c)), 
+            c || ("value" in d && void 0 !== (s = d.value) && (s !== n.value || "progress" === l.type && !s) && C(n, "value", s, p.value, !1), 
             "checked" in d && void 0 !== (s = d.checked) && s !== n.checked && C(n, "checked", s, p.checked, !1));
         }
         return n;
     }
-    function H(l, u, i) {
+    function I(l, u, i) {
         try {
             "function" == typeof l ? l(u) : l.current = u;
         } catch (l) {
             n.__e(l, i);
         }
     }
-    function I(l, u, i) {
+    function L(l, u, i) {
         var t, o, r;
-        if (n.unmount && n.unmount(l), (t = l.ref) && (t.current && t.current !== l.__e || H(t, null, u)), 
+        if (n.unmount && n.unmount(l), (t = l.ref) && (t.current && t.current !== l.__e || I(t, null, u)), 
         i || "function" == typeof l.type || (i = null != (o = l.__e)), l.__e = l.__d = void 0, 
         null != (t = l.__c)) {
             if (t.componentWillUnmount) try {
@@ -271,18 +277,18 @@ window.installmentsModal = function(modules) {
             }
             t.base = t.__P = null;
         }
-        if (t = l.__k) for (r = 0; r < t.length; r++) t[r] && I(t[r], u, i);
-        null != o && a(o);
+        if (t = l.__k) for (r = 0; r < t.length; r++) t[r] && L(t[r], u, i);
+        null != o && preact_module_a(o);
     }
-    function L(n, l, u) {
+    function M(n, l, u) {
         return this.constructor(n, u);
     }
     n = {
         __e: function(n, l) {
-            for (var u, i; l = l.__; ) if ((u = l.__c) && !u.__) try {
-                if (u.constructor && null != u.constructor.getDerivedStateFromError && (i = !0, 
-                u.setState(u.constructor.getDerivedStateFromError(n))), null != u.componentDidCatch && (i = !0, 
-                u.componentDidCatch(n)), i) return k(u.__E = u);
+            for (var u, i, t, o = l.__h; l = l.__; ) if ((u = l.__c) && !u.__) try {
+                if ((i = u.constructor) && null != i.getDerivedStateFromError && (u.setState(i.getDerivedStateFromError(n)), 
+                t = u.__d), null != u.componentDidCatch && (u.componentDidCatch(n), t = u.__d), 
+                t) return l.__h = o, u.__E = u;
             } catch (l) {
                 n = l;
             }
@@ -296,7 +302,7 @@ window.installmentsModal = function(modules) {
     }, d.prototype.forceUpdate = function(n) {
         this.__v && (this.__e = !0, n && this.__h.push(n), k(this));
     }, d.prototype.render = p, preact_module_u = [], preact_module_i = "function" == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, 
-    m.__r = 0, preact_module_o = f;
+    g.__r = 0, preact_module_o = f;
     var hooks_module_t, hooks_module_u, hooks_module_r, hooks_module_o = 0, hooks_module_i = [], hooks_module_c = n.__r, hooks_module_f = n.diffed, hooks_module_e = n.__c, hooks_module_a = n.unmount;
     function hooks_module_v(t, r) {
         n.__h && n.__h(hooks_module_u, t, hooks_module_o || r), hooks_module_o = 0;
@@ -309,16 +315,16 @@ window.installmentsModal = function(modules) {
     function hooks_module_m(n) {
         return hooks_module_o = 1, function(n, r, o) {
             var i = hooks_module_v(hooks_module_t++, 2);
-            return i.t = n, i.__c || (i.__c = hooks_module_u, i.__ = [ hooks_module_k(void 0, r), function(n) {
+            return i.t = n, i.__c || (i.__ = [ hooks_module_k(void 0, r), function(n) {
                 var t = i.t(i.__[0], n);
                 i.__[0] !== t && (i.__ = [ t, i.__[1] ], i.__c.setState({}));
-            } ]), i.__;
+            } ], i.__c = hooks_module_u), i.__;
         }(hooks_module_k, n);
     }
     function hooks_module_y(r, o) {
         var i = hooks_module_v(hooks_module_t++, 3);
         !n.__s && function(n, t) {
-            return !n || t.some((function(t, u) {
+            return !n || n.length !== t.length || t.some((function(t, u) {
                 return t !== n[u];
             }));
         }(i.__H, o) && (i.__ = r, i.__H = o, hooks_module_u.__H.__h.push(i));
@@ -376,6 +382,312 @@ window.installmentsModal = function(modules) {
     function hooks_module_k(n, t) {
         return "function" == typeof t ? t(n) : t;
     }
+    function utils_isPromise(item) {
+        try {
+            if (!item) return !1;
+            if ("undefined" != typeof Promise && item instanceof Promise) return !0;
+            if ("undefined" != typeof window && "function" == typeof window.Window && item instanceof window.Window) return !1;
+            if ("undefined" != typeof window && "function" == typeof window.constructor && item instanceof window.constructor) return !1;
+            var _toString = {}.toString;
+            if (_toString) {
+                var name = _toString.call(item);
+                if ("[object Window]" === name || "[object global]" === name || "[object DOMWindow]" === name) return !1;
+            }
+            if ("function" == typeof item.then) return !0;
+        } catch (err) {
+            return !1;
+        }
+        return !1;
+    }
+    var dispatchedErrors = [];
+    var possiblyUnhandledPromiseHandlers = [];
+    var activeCount = 0;
+    var flushPromise;
+    function flushActive() {
+        if (!activeCount && flushPromise) {
+            var promise = flushPromise;
+            flushPromise = null;
+            promise.resolve();
+        }
+    }
+    function startActive() {
+        activeCount += 1;
+    }
+    function endActive() {
+        activeCount -= 1;
+        flushActive();
+    }
+    var promise_ZalgoPromise = function() {
+        function ZalgoPromise(handler) {
+            var _this = this;
+            this.resolved = void 0;
+            this.rejected = void 0;
+            this.errorHandled = void 0;
+            this.value = void 0;
+            this.error = void 0;
+            this.handlers = void 0;
+            this.dispatching = void 0;
+            this.stack = void 0;
+            this.resolved = !1;
+            this.rejected = !1;
+            this.errorHandled = !1;
+            this.handlers = [];
+            if (handler) {
+                var _result;
+                var _error;
+                var resolved = !1;
+                var rejected = !1;
+                var isAsync = !1;
+                startActive();
+                try {
+                    handler((function(res) {
+                        if (isAsync) _this.resolve(res); else {
+                            resolved = !0;
+                            _result = res;
+                        }
+                    }), (function(err) {
+                        if (isAsync) _this.reject(err); else {
+                            rejected = !0;
+                            _error = err;
+                        }
+                    }));
+                } catch (err) {
+                    endActive();
+                    this.reject(err);
+                    return;
+                }
+                endActive();
+                isAsync = !0;
+                resolved ? this.resolve(_result) : rejected && this.reject(_error);
+            }
+        }
+        var _proto = ZalgoPromise.prototype;
+        _proto.resolve = function(result) {
+            if (this.resolved || this.rejected) return this;
+            if (utils_isPromise(result)) throw new Error("Can not resolve promise with another promise");
+            this.resolved = !0;
+            this.value = result;
+            this.dispatch();
+            return this;
+        };
+        _proto.reject = function(error) {
+            var _this2 = this;
+            if (this.resolved || this.rejected) return this;
+            if (utils_isPromise(error)) throw new Error("Can not reject promise with another promise");
+            if (!error) {
+                var _err = error && "function" == typeof error.toString ? error.toString() : {}.toString.call(error);
+                error = new Error("Expected reject to be called with Error, got " + _err);
+            }
+            this.rejected = !0;
+            this.error = error;
+            this.errorHandled || setTimeout((function() {
+                _this2.errorHandled || function(err, promise) {
+                    if (-1 === dispatchedErrors.indexOf(err)) {
+                        dispatchedErrors.push(err);
+                        setTimeout((function() {
+                            throw err;
+                        }), 1);
+                        for (var j = 0; j < possiblyUnhandledPromiseHandlers.length; j++) possiblyUnhandledPromiseHandlers[j](err, promise);
+                    }
+                }(error, _this2);
+            }), 1);
+            this.dispatch();
+            return this;
+        };
+        _proto.asyncReject = function(error) {
+            this.errorHandled = !0;
+            this.reject(error);
+            return this;
+        };
+        _proto.dispatch = function() {
+            var resolved = this.resolved, rejected = this.rejected, handlers = this.handlers;
+            if (!this.dispatching && (resolved || rejected)) {
+                this.dispatching = !0;
+                startActive();
+                var chain = function(firstPromise, secondPromise) {
+                    return firstPromise.then((function(res) {
+                        secondPromise.resolve(res);
+                    }), (function(err) {
+                        secondPromise.reject(err);
+                    }));
+                };
+                for (var i = 0; i < handlers.length; i++) {
+                    var _handlers$i = handlers[i], onSuccess = _handlers$i.onSuccess, onError = _handlers$i.onError, promise = _handlers$i.promise;
+                    var _result2 = void 0;
+                    if (resolved) try {
+                        _result2 = onSuccess ? onSuccess(this.value) : this.value;
+                    } catch (err) {
+                        promise.reject(err);
+                        continue;
+                    } else if (rejected) {
+                        if (!onError) {
+                            promise.reject(this.error);
+                            continue;
+                        }
+                        try {
+                            _result2 = onError(this.error);
+                        } catch (err) {
+                            promise.reject(err);
+                            continue;
+                        }
+                    }
+                    if (_result2 instanceof ZalgoPromise && (_result2.resolved || _result2.rejected)) {
+                        _result2.resolved ? promise.resolve(_result2.value) : promise.reject(_result2.error);
+                        _result2.errorHandled = !0;
+                    } else utils_isPromise(_result2) ? _result2 instanceof ZalgoPromise && (_result2.resolved || _result2.rejected) ? _result2.resolved ? promise.resolve(_result2.value) : promise.reject(_result2.error) : chain(_result2, promise) : promise.resolve(_result2);
+                }
+                handlers.length = 0;
+                this.dispatching = !1;
+                endActive();
+            }
+        };
+        _proto.then = function(onSuccess, onError) {
+            if (onSuccess && "function" != typeof onSuccess && !onSuccess.call) throw new Error("Promise.then expected a function for success handler");
+            if (onError && "function" != typeof onError && !onError.call) throw new Error("Promise.then expected a function for error handler");
+            var promise = new ZalgoPromise;
+            this.handlers.push({
+                promise: promise,
+                onSuccess: onSuccess,
+                onError: onError
+            });
+            this.errorHandled = !0;
+            this.dispatch();
+            return promise;
+        };
+        _proto.catch = function(onError) {
+            return this.then(void 0, onError);
+        };
+        _proto.finally = function(onFinally) {
+            if (onFinally && "function" != typeof onFinally && !onFinally.call) throw new Error("Promise.finally expected a function");
+            return this.then((function(result) {
+                return ZalgoPromise.try(onFinally).then((function() {
+                    return result;
+                }));
+            }), (function(err) {
+                return ZalgoPromise.try(onFinally).then((function() {
+                    throw err;
+                }));
+            }));
+        };
+        _proto.timeout = function(time, err) {
+            var _this3 = this;
+            if (this.resolved || this.rejected) return this;
+            var timeout = setTimeout((function() {
+                _this3.resolved || _this3.rejected || _this3.reject(err || new Error("Promise timed out after " + time + "ms"));
+            }), time);
+            return this.then((function(result) {
+                clearTimeout(timeout);
+                return result;
+            }));
+        };
+        _proto.toPromise = function() {
+            if ("undefined" == typeof Promise) throw new TypeError("Could not find Promise");
+            return Promise.resolve(this);
+        };
+        ZalgoPromise.resolve = function(value) {
+            return value instanceof ZalgoPromise ? value : utils_isPromise(value) ? new ZalgoPromise((function(resolve, reject) {
+                return value.then(resolve, reject);
+            })) : (new ZalgoPromise).resolve(value);
+        };
+        ZalgoPromise.reject = function(error) {
+            return (new ZalgoPromise).reject(error);
+        };
+        ZalgoPromise.asyncReject = function(error) {
+            return (new ZalgoPromise).asyncReject(error);
+        };
+        ZalgoPromise.all = function(promises) {
+            var promise = new ZalgoPromise;
+            var count = promises.length;
+            var results = [];
+            if (!count) {
+                promise.resolve(results);
+                return promise;
+            }
+            var chain = function(i, firstPromise, secondPromise) {
+                return firstPromise.then((function(res) {
+                    results[i] = res;
+                    0 == (count -= 1) && promise.resolve(results);
+                }), (function(err) {
+                    secondPromise.reject(err);
+                }));
+            };
+            for (var i = 0; i < promises.length; i++) {
+                var prom = promises[i];
+                if (prom instanceof ZalgoPromise) {
+                    if (prom.resolved) {
+                        results[i] = prom.value;
+                        count -= 1;
+                        continue;
+                    }
+                } else if (!utils_isPromise(prom)) {
+                    results[i] = prom;
+                    count -= 1;
+                    continue;
+                }
+                chain(i, ZalgoPromise.resolve(prom), promise);
+            }
+            0 === count && promise.resolve(results);
+            return promise;
+        };
+        ZalgoPromise.hash = function(promises) {
+            var result = {};
+            var awaitPromises = [];
+            var _loop = function(key) {
+                if (promises.hasOwnProperty(key)) {
+                    var value = promises[key];
+                    utils_isPromise(value) ? awaitPromises.push(value.then((function(res) {
+                        result[key] = res;
+                    }))) : result[key] = value;
+                }
+            };
+            for (var key in promises) _loop(key);
+            return ZalgoPromise.all(awaitPromises).then((function() {
+                return result;
+            }));
+        };
+        ZalgoPromise.map = function(items, method) {
+            return ZalgoPromise.all(items.map(method));
+        };
+        ZalgoPromise.onPossiblyUnhandledException = function(handler) {
+            return function(handler) {
+                possiblyUnhandledPromiseHandlers.push(handler);
+                return {
+                    cancel: function() {
+                        possiblyUnhandledPromiseHandlers.splice(possiblyUnhandledPromiseHandlers.indexOf(handler), 1);
+                    }
+                };
+            }(handler);
+        };
+        ZalgoPromise.try = function(method, context, args) {
+            if (method && "function" != typeof method && !method.call) throw new Error("Promise.try expected a function");
+            var result;
+            startActive();
+            try {
+                result = method.apply(context, args || []);
+            } catch (err) {
+                endActive();
+                return ZalgoPromise.reject(err);
+            }
+            endActive();
+            return ZalgoPromise.resolve(result);
+        };
+        ZalgoPromise.delay = function(_delay) {
+            return new ZalgoPromise((function(resolve) {
+                setTimeout(resolve, _delay);
+            }));
+        };
+        ZalgoPromise.isPromise = function(value) {
+            return !!(value && value instanceof ZalgoPromise) || utils_isPromise(value);
+        };
+        ZalgoPromise.flush = function() {
+            return function(Zalgo) {
+                var promise = flushPromise = flushPromise || new Zalgo;
+                flushActive();
+                return promise;
+            }(ZalgoPromise);
+        };
+        return ZalgoPromise;
+    }();
     function _extends() {
         return (_extends = Object.assign || function(target) {
             for (var i = 1; i < arguments.length; i++) {
@@ -667,6 +979,18 @@ window.installmentsModal = function(modules) {
         };
         return CrossDomainSafeWeakMap;
     }();
+    function uniqueID() {
+        var chars = "0123456789abcdef";
+        return "xxxxxxxxxx".replace(/./g, (function() {
+            return chars.charAt(Math.floor(Math.random() * chars.length));
+        })) + "_" + function(str) {
+            if ("function" == typeof btoa) return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (function(m, p1) {
+                return String.fromCharCode(parseInt(p1, 16));
+            })));
+            if ("undefined" != typeof Buffer) return Buffer.from(str, "utf8").toString("base64");
+            throw new Error("Can not find window.btoa or Buffer");
+        }((new Date).toISOString().slice(11, 19).replace("T", ".")).replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+    }
     var objectIDs;
     function serializeArgs(args) {
         try {
@@ -676,18 +1000,9 @@ window.installmentsModal = function(modules) {
                     if (null == obj || "object" != typeof obj && "function" != typeof obj) throw new Error("Invalid object");
                     var uid = objectIDs.get(obj);
                     if (!uid) {
-                        uid = typeof obj + ":" + (chars = "0123456789abcdef", "xxxxxxxxxx".replace(/./g, (function() {
-                            return chars.charAt(Math.floor(Math.random() * chars.length));
-                        })) + "_" + function(str) {
-                            if ("function" == typeof btoa) return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (function(m, p1) {
-                                return String.fromCharCode(parseInt(p1, 16));
-                            })));
-                            if ("undefined" != typeof Buffer) return Buffer.from(str, "utf8").toString("base64");
-                            throw new Error("Can not find window.btoa or Buffer");
-                        }((new Date).toISOString().slice(11, 19).replace("T", ".")).replace(/[^a-zA-Z0-9]/g, "").toLowerCase());
+                        uid = typeof obj + ":" + uniqueID();
                         objectIDs.set(obj, uid);
                     }
-                    var chars;
                     return uid;
                 }(val) + "]" : val;
             }));
@@ -735,11 +1050,66 @@ window.installmentsModal = function(modules) {
         for (var _i2 = 0; _i2 < memoizedFunctions.length; _i2++) memoizedFunctions[_i2].reset();
     };
     memoize((function(obj) {
+        if (Object.values) return Object.values(obj);
         var result = [];
         for (var key in obj) obj.hasOwnProperty(key) && result.push(obj[key]);
         return result;
     }));
-    Object.create(Error.prototype);
+    Error;
+    function isDocumentReady() {
+        return Boolean(document.body) && "complete" === document.readyState;
+    }
+    function isDocumentInteractive() {
+        return Boolean(document.body) && "interactive" === document.readyState;
+    }
+    memoize((function() {
+        return new promise_ZalgoPromise((function(resolve) {
+            if (isDocumentReady() || isDocumentInteractive()) return resolve();
+            var interval = setInterval((function() {
+                if (isDocumentReady() || isDocumentInteractive()) {
+                    clearInterval(interval);
+                    return resolve();
+                }
+            }), 10);
+        }));
+    }));
+    var currentScript = "undefined" != typeof document ? document.currentScript : null;
+    var getCurrentScript = memoize((function() {
+        if (currentScript) return currentScript;
+        if (currentScript = function() {
+            try {
+                var stack = function() {
+                    try {
+                        throw new Error("_");
+                    } catch (err) {
+                        return err.stack || "";
+                    }
+                }();
+                var stackDetails = /.*at [^(]*\((.*):(.+):(.+)\)$/gi.exec(stack);
+                var scriptLocation = stackDetails && stackDetails[1];
+                if (!scriptLocation) return;
+                for (var _i20 = 0, _Array$prototype$slic2 = [].slice.call(document.getElementsByTagName("script")).reverse(); _i20 < _Array$prototype$slic2.length; _i20++) {
+                    var script = _Array$prototype$slic2[_i20];
+                    if (script.src && script.src === scriptLocation) return script;
+                }
+            } catch (err) {}
+        }()) return currentScript;
+        throw new Error("Can not determine current script");
+    }));
+    var currentUID = uniqueID();
+    memoize((function() {
+        var script;
+        try {
+            script = getCurrentScript();
+        } catch (err) {
+            return currentUID;
+        }
+        var uid = script.getAttribute("data-uid");
+        if (uid && "string" == typeof uid) return uid;
+        uid = uniqueID();
+        script.setAttribute("data-uid", uid);
+        return uid;
+    }));
     function Installments(_ref) {
         var data = _ref.data, cspNonce = _ref.cspNonce, close = _ref.close, content = _ref.content;
         var _useState = hooks_module_m(null), selectedOption = _useState[0], setSelectedOption = _useState[1];
@@ -749,46 +1119,52 @@ window.installmentsModal = function(modules) {
                 return void 0 !== dataObj[key] ? dataObj[key] : "";
             }));
         };
-        return v(p, null, v("style", {
+        return h(p, null, h("style", {
             nonce: cspNonce
-        }, "\n                    .installments {\n                        outline-style: none;\n                        padding-bottom: 20px;\n                        position: relative;\n                    }\n\n                    .installments .header {\n                        box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2);\n                        padding-right: 50px;\n                        position: relative;\n                    }\n\n                    .installments h3 {\n                        padding: 15px 20px;\n                        margin:0;\n                        font-weight: normal;\n                        font-size: 1em;\n                    }\n\n                    .installments ul {\n                        margin:0;\n                        padding:0;\n                    }\n                    .installments li a {\n                        border: 1px solid #fff;\n                        border-bottom-color: #ccc;\n                        padding: 13px;\n                        margin: 0 10px;\n                        display: flex;\n                    }\n                    .installments li a:hover {\n                        background: #F6F7FA;\n                    }\n                    .installments li a:active {\n                        border:1px solid #000;\n                    }\n                    .installments li.selected a {\n                        background: #F6F7FA;\n                    }\n                    .installments .months {\n                        align-items: center;\n                        display: flex;\n                        width: 50px;\n                        position: relative;\n                    }\n                    .installments .months:after {\n                        content: \"\";\n                        width: 1px;\n                        top: 0;\n                        bottom: 0;\n                        background: #ccc;\n                        position: absolute;\n                        right: 15px;\n                    }\n                    .installments .details {\n                        font-size: 0.9em;\n                    }\n                    .installments .details .price {\n                        display: block;\n                        font-weight:bold;\n                        margin-bottom:6px;\n                    }\n                    .installments .agree-info {\n                        font-size: 0.9em;\n                        text-align: center;\n                    }\n                    \n                    .installments .btn-container {\n                        text-align: center;\n                        padding: 15px;\n                    }\n                    .installments .pay-btn{\n                        border: 0;\n                        background: #2C2E2F;\n                        padding: 10px 20px;\n                        border-radius: 25px;\n                        line-height: 1.5em;\n                        color: #fff;\n                        font-weight: bold;\n                        font-size: 1em;\n                        transition: background-color 240ms ease;\n                    }\n                    .installments .pay-btn:hover,\n                    .installments .pay-btn:focus {\n                        filter: brightness(1.2);\n                        outline: 0;\n                    }\n                    .installments .pay-btn:active,\n                    .installments .pay-btn:focus {\n                        text-decoration: underline;                    \n                    }\n                    .installments .pay-btn .amount{\n                        margin-left:5px;\n                    }\n\n                    .installments .close-btn {\n                        position: absolute;\n                        right: 16px;\n                        top: 16px;\n                        width: 16px;\n                        height: 16px;\n                        opacity: 0.6;\n                        z-index: 1;\n                        cursor: pointer;\n                    }\n                    .installments .close-btn:hover {\n                        opacity: 1;\n                    }\n                    .installments .close-btn:before, \n                    .installments .close-btn:after {\n                        position: absolute;\n                        left: 8px;\n                        content: ' ';\n                        height: 16px;\n                        width: 2px;\n                        background-color: #000;\n                        transform: rotate(45deg);\n                    }\n                    .installments .close-btn:after {\n                        transform: rotate(-45deg);\n                    }\n                "), v("div", {
-            class: "installments",
-            tabIndex: "0"
-        }, v("a", {
+        }, "\n                    .installments {\n                        outline-style: none;\n                        padding-bottom: 20px;\n                        position: relative;\n                    }\n\n                    .installments .header {\n                        box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2);\n                        padding-right: 50px;\n                        position: relative;\n                    }\n\n                    .installments h3 {\n                        padding: 15px 20px;\n                        margin:0;\n                        font-weight: normal;\n                        font-size: 1em;\n                    }\n\n                    .installments button {\n                        background: #fff;\n                        border: none;\n                    }\n\n                    .installments ul {\n                        margin:0;\n                        padding:0;\n                    }\n                    .installments li {\n                        padding: 0 10px;\n                    }\n                    .installments li .list-wrap {\n                        border: 1px solid #fff;\n                        border-bottom-color: #ccc;\n                        padding: 13px;\n                        display: flex;\n                        text-decoration: none;\n                        color: inherit;\n                        width: 100%;\n                        text-align: left;\n                        align-items: inherit;\n                        font-size: 1em;\n                        font-family: inherit;\n                        cursor: pointer;\n                    }\n                    .installments li .list-wrap:hover {\n                        background: #F6F7FA;\n                    }\n                    .installments li .list-wrap:active {\n                        border:1px solid #000;\n                    }\n                    .installments li.selected .list-wrap {\n                        background: #F6F7FA;\n                    }\n                    .installments .months {\n                        align-items: center;\n                        display: flex;\n                        width: 50px;\n                        position: relative;\n                    }\n                    .installments .months:after {\n                        content: \"\";\n                        width: 1px;\n                        top: 0;\n                        bottom: 0;\n                        background: #ccc;\n                        position: absolute;\n                        right: 15px;\n                    }\n                    .installments .details {\n                        font-size: 0.9em;\n                    }\n                    .installments .details .price {\n                        display: block;\n                        font-weight:bold;\n                        margin-bottom:6px;\n                    }\n\n                    .installments .agree-info {\n                        font-size: 0.9em;\n                        text-align: center;\n                        padding: 0 10px;\n                    }\n                    \n                    .installments .btn-container {\n                        text-align: center;\n                        padding: 15px;\n                    }\n                    .installments .pay-btn{\n                        border: 0;\n                        background: #2C2E2F;\n                        padding: 10px 20px;\n                        border-radius: 25px;\n                        line-height: 1.5em;\n                        color: #fff;\n                        font-weight: bold;\n                        font-size: 1em;\n                        transition: background-color 240ms ease;\n                        cursor: pointer;\n                    }\n                    .installments .pay-btn:hover,\n                    .installments .pay-btn:focus {\n                        filter: brightness(1.2);\n                        outline: 0;\n                    }\n                    .installments .pay-btn:active,\n                    .installments .pay-btn:focus {\n                        text-decoration: underline;                    \n                    }\n                    .installments .pay-btn .amount{\n                        margin-left:5px;\n                    }\n\n                    .installments .close-btn {\n                        position: absolute;\n                        right: 11px;\n                        top: 11px;\n                        width: 26px;\n                        height: 26px;\n                        opacity: 0.6;\n                        z-index: 1;\n                        cursor: pointer;\n                    }\n                    .installments .close-btn:hover {\n                        opacity: 1;\n                    }\n                    .installments .close-btn:before, \n                    .installments .close-btn:after {\n                        position: absolute;\n                        left: 12px;\n                        content: ' ';\n                        height: 16px;\n                        width: 2px;\n                        background-color: #000;\n                        transform: rotate(45deg);\n                        top: 5px;\n                    }\n                    .installments .close-btn:after {\n                        transform: rotate(-45deg);\n                    }\n                "), h("div", {
+            class: "installments"
+        }, h("button", {
             class: "close-btn",
             onClick: function() {
                 close();
                 return data.onClose();
-            }
-        }), v("div", {
+            },
+            "aria-label": "close",
+            type: "button"
+        }), h("div", {
             className: "header"
-        }, v("h3", {
+        }, h("h3", {
             className: "title"
-        }, content.header)), v("ul", null, data.options.map((function(option, i) {
-            return v("li", {
+        }, content.header)), h("ul", {
+            id: "installments-list"
+        }, data.options.map((function(option, i) {
+            return h("li", {
                 className: selectedIndex === i ? "selected" : ""
-            }, v("a", {
-                onClick: function() {
-                    !function(option, index) {
+            }, h("button", {
+                type: "button",
+                class: "list-wrap",
+                onClick: function(event) {
+                    !function(event, option, index) {
+                        event.preventDefault();
                         setSelectedOption(option);
                         setSelectedIndex(index);
                         option.onSelect(option);
-                    }(option, i);
+                    }(event, option, i);
                 }
-            }, v("div", {
+            }, h("div", {
                 className: "months"
-            }, renderContent(content.term, option)), v("div", {
+            }, renderContent(content.term, option)), h("div", {
                 className: "details"
-            }, v("span", {
+            }, h("span", {
                 className: "price"
             }, 1 === option.term ? option.percent ? renderContent(content.monthly1xWithDiscount, {
                 percent: Number(option.percent)
-            }) : content.monthly1x : renderContent(content.monthly, option)), v("span", {
+            }) : content.monthly1x : renderContent(content.monthly, option)), h("span", {
                 className: "total"
             }, renderContent(1 === option.term && option.percent ? content.totalWithDiscount : content.totalAmount, option)))));
-        }))), v("div", {
+        }))), h("div", {
             className: "btn-container"
-        }, v("button", {
+        }, h("button", {
             type: "button",
             className: "pay-btn",
             onClick: function() {
@@ -797,7 +1173,7 @@ window.installmentsModal = function(modules) {
             }
         }, renderContent(content.payLabel, {
             payAmount: selectedOption ? selectedOption.totalAmount : data.cartAmount
-        }))), v("div", {
+        }))), h("div", {
             className: "agree-info"
         }, content.disclaimer)));
     }
@@ -817,9 +1193,9 @@ window.installmentsModal = function(modules) {
             var hasOptions = Boolean(data && data.options && data.options.length);
             setVisible(hasOptions);
         }), [ data ]);
-        return v(p, null, v("style", {
+        return h(p, null, h("style", {
             nonce: cspNonce
-        }, "\n                    * {\n                        box-sizing: border-box;\n                    }\n\n                    html, body {\n                        margin: 0;\n                        padding: 0;\n                        font-family: Helvetica, sans-serif;\n                        font-size: 14px;\n                    }\n\n                    body {\n                        width: 100%;\n                        overflow:auto;\n                    }\n                "), visible ? v(Installments, {
+        }, "\n                    * {\n                        box-sizing: border-box;\n                    }\n\n                    html, body {\n                        margin: 0;\n                        padding: 0;\n                        font-family: Helvetica, sans-serif;\n                        font-size: 14px;\n                    }\n\n                    body {\n                        width: 100%;\n                        overflow:auto;\n                    }\n                "), visible ? h(Installments, {
             data: data,
             cspNonce: cspNonce,
             close: close,
@@ -829,10 +1205,10 @@ window.installmentsModal = function(modules) {
     function setupInstallments(_ref2) {
         !function(l, u, i) {
             var t, r, c;
-            n.__ && n.__(l, u), r = (t = i === preact_module_o) ? null : u.__k, l = v(p, null, [ l ]), 
-            c = [], T(u, u.__k = l, r || f, f, void 0 !== u.ownerSVGElement, r ? null : u.childNodes.length ? e.slice.call(u.childNodes) : null, c, f, t), 
-            $(c, l);
-        }(v(Page, {
+            n.__ && n.__(l, u), r = (t = i === preact_module_o) ? null : u.__k, l = h(p, null, [ l ]), 
+            c = [], $(u, u.__k = l, r || f, f, void 0 !== u.ownerSVGElement, r ? null : u.childNodes.length ? e.slice.call(u.childNodes) : null, c, f, t), 
+            j(c, l);
+        }(h(Page, {
             cspNonce: _ref2.cspNonce,
             content: _ref2.content
         }), function() {

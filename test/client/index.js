@@ -52,7 +52,7 @@ describe('installments cases', () => {
                 content: getContent()
             });
 
-            const selectedList = document.querySelectorAll('.installments ul li')[1].querySelector('a');
+            const selectedList = document.querySelectorAll('.installments ul li')[1].querySelector('button');
             selectedList && selectedList.click();
 
             await wait();
