@@ -1153,7 +1153,7 @@ window.installmentsModal = function(modules) {
                 }
             }, h("div", {
                 className: "months"
-            }, renderContent(content.term, option)), h("div", {
+            }, option.term, "x"), h("div", {
                 className: "details"
             }, h("span", {
                 className: "price"

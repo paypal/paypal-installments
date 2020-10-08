@@ -199,7 +199,7 @@ export function Installments({ data, cspNonce, close, content } : InstallmentsPr
                             return (
                                 <li className={ (selectedIndex === i) ? 'selected' : '' }>
                                     <button type="button" class="list-wrap" onClick={ (event) => { selectOption(event, option, i); } }>
-                                        <div className="months">{ renderContent(content.term, option) }</div>
+                                        <div className="months">{ option.term }x</div>
                                         <div className="details">
                                             { option.term === 1 ?
                                                 <span className="price">
