@@ -7,7 +7,7 @@ import { HEADERS } from '../constants';
 import { callGraphQL } from './api';
 
 type getInstallmentsOptions = {|
-  paymentToken? : string,
+  vaultedToken? : string,
   country : string,
   token : string,
   buyerAccessToken : string
@@ -20,7 +20,7 @@ type InstallmentValue = {|
 |};
 
 type getInstallmentsInfo = {|
-  getInstallmentsForOnboardingFlows : $ReadOnlyArray<{|
+  getInstallments : $ReadOnlyArray<{|
       discount? : {|
           amount : InstallmentValue,
           percentage : string
@@ -32,19 +32,19 @@ type getInstallmentsInfo = {|
   |}>
 |};
 
-export const getInstallments = ({ paymentToken, token, country, buyerAccessToken } : getInstallmentsOptions) : ZalgoPromise<getInstallmentsInfo> => {
+export const getInstallments = ({ vaultedToken, token, country, buyerAccessToken } : getInstallmentsOptions) : ZalgoPromise<getInstallmentsInfo> => {
     return callGraphQL({
-        name:  'getInstallmentsForOnboardingFlows',
+        name:  'getInstallments',
         query: `
-            query getInstallmentsForOnboardingFlows(
-                $paymentToken: String
+            query getInstallments(
+                $vaultedToken: String
                 $token: String!
                 $country: CountryCodes!
             ) {
-                getInstallmentsForOnboardingFlows(
-                paymentToken: $paymentToken
-                token: $token
-                buyerCountry: $country
+                getInstallments(
+                    vaultedToken: $vaultedToken
+                    token: $token
+                    buyerCountry: $country
                 ) {
                     discount {
                         amount {
@@ -70,7 +70,7 @@ export const getInstallments = ({ paymentToken, token, country, buyerAccessToken
             }
         `,
         variables: {
-            paymentToken,
+            vaultedToken,
             token,
             country
         },
