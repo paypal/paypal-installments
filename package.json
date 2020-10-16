@@ -1,6 +1,6 @@
 {
   "name": "@paypal/installments",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "PayPal Installments",
   "main": "index.js",
   "scripts": {
