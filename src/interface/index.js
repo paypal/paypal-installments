@@ -24,17 +24,16 @@ type installmentsProps = {|
     getLogger? : Function
 |};
 
-export function initiateInstallments({ clientID, Installments, paymentMethodID, button, buyerCountry, orderID, accessToken, cartAmount, onPay, getLogger = getFlowLogger } : installmentsProps) : Function {
+export function initiateInstallments({ clientID, Installments, paymentMethodID, button, orderID, accessToken, cartAmount, onPay, getLogger = getFlowLogger } : installmentsProps) : Function {
     const inputs = {
         vaultedToken:       paymentMethodID,
-        country:            buyerCountry,
         token:              orderID,
         buyerAccessToken:   accessToken
     };
     
     return getInstallments(inputs).then((installmentsResponse) => {
-        if (installmentsResponse && installmentsResponse.getInstallments) {
-            const installmentsData = installmentsResponse.getInstallments;
+        if (installmentsResponse && installmentsResponse.getInstallmentsForVaultedToken) {
+            const installmentsData = installmentsResponse.getInstallmentsForVaultedToken;
 
             getLogger()
                 .info('installments_loaded')
