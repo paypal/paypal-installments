@@ -12,6 +12,7 @@ export function promiseNoop<T>(...args : $ReadOnlyArray<T>) : ZalgoPromise<void>
 }
 
 export function getBody() : HTMLBodyElement {
+    // eslint-disable-next-line compat/compat
     const body = document.body;
 
     if (!body) {

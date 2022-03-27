@@ -1,7 +1,6 @@
 {
   "name": "@paypal/installments",
-  "version": "1.0.4",
-  "description": "PayPal Installments",
+  "version": "1.0.4", "description": "PayPal Installments",
   "main": "index.js",
   "scripts": {
     "babel": "babel ./server --ignore=node_modules --out-dir ./server",
@@ -64,7 +63,7 @@
   "devDependencies": {
     "babel-core": "^7.0.0-bridge.0",
     "cheerio": "^1.0.0-rc.3",
-    "flow-bin": "^0.130.0",
+    "flow-bin": "0.130.0",
     "grumbler-scripts": "^3",
     "mocha": "^4",
     "webpack-mem-compile": "^1.0.2",
