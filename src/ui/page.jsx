@@ -15,7 +15,7 @@ type PageProps = {|
     content : ContentType
 |};
 
-function Page({ cspNonce, content } : PageProps) : Node {
+function Page({ cspNonce, content } : PageProps) : mixed {
     const { data, close } = useXProps();
     const [ visible, setVisible ] = useState(false);
 

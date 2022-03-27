@@ -55,7 +55,7 @@ export function mockInstallments() : ZoidComponentInstance<InstallmentsFlowProps
     };
 }
 
-export function getContent(){
+export function getContent() : Object {
     return {
         header:"Choose your monthly installment plan",
         monthly:"{amount}/month",
@@ -69,6 +69,6 @@ export function getContent(){
     }
 }
 
-export function getCspNonce() {
+export function getCspNonce() : string {
     return 'owjahsdn23nj112l3k2ff1mnp4'
 }

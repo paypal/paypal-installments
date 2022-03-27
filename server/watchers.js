@@ -9,7 +9,26 @@ import { BUTTON_RENDER_MODULE, BUTTON_CLIENT_MODULE, MODULE_POLL_INTERVAL, SDK_C
 let paypalSDKWatcher;
 let paypalSmartButtonsWatcher;
 
-export const getPayPalSDKWatcher = ({ logBuffer, cache } : {| logBuffer : ?LoggerBufferType, cache : ?CacheType |}) => {
+// grabthar doesn't output its flow types
+type ModuleDetails = {|
+    nodeModulesPath : string,
+    modulePath : string,
+    version : string,
+    previousVersion : string,
+    dependencies : {
+        [string] : {|
+            version : string,
+            path : string
+        |}
+    }
+|};
+
+type NpmPoll = {|
+  get : (tag? : string) => Promise<ModuleDetails>,
+  read : (path? : string) => Promise<string>
+|};
+
+export const getPayPalSDKWatcher = ({ logBuffer, cache } : {| logBuffer : ?LoggerBufferType, cache : ?CacheType |}) : NpmPoll => {
     if (!cache || !logBuffer) {
         throw new Error(`Cache and logBuffer required`);
     }
@@ -28,7 +47,7 @@ export const getPayPalSDKWatcher = ({ logBuffer, cache } : {| logBuffer : ?Logge
     return paypalSDKWatcher;
 };
 
-export const getPayPalSmartPaymentButtonsWatcher = ({ logBuffer, cache } : {| logBuffer : ?LoggerBufferType, cache : ?CacheType |}) => {
+export const getPayPalSmartPaymentButtonsWatcher = ({ logBuffer, cache } : {| logBuffer : ?LoggerBufferType, cache : ?CacheType |}) : NpmPoll => {
     if (!cache || !logBuffer) {
         throw new Error(`Cache and logBuffer required`);
     }
@@ -42,7 +61,7 @@ export const getPayPalSmartPaymentButtonsWatcher = ({ logBuffer, cache } : {| lo
         logger:       logBuffer,
         cache
     });
-    
+
     return paypalSmartButtonsWatcher;
 };
 
