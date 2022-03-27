@@ -1,7 +1,7 @@
 /* @flow */
 
-import { ZalgoPromise } from 'zalgo-promise/src';
-import { request } from 'belter/src';
+import { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
+import { request } from '@krakenjs/belter/src';
 
 import { GRAPHQL_URI } from '../config';
 import { SMART_PAYMENT_BUTTONS } from '../constants';

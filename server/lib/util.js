@@ -2,10 +2,10 @@
 
 import { dirname } from 'path';
 
-import { webpackCompile } from 'webpack-mem-compile';
+import { webpackCompile } from '@krakenjs/webpack-mem-compile';
 import webpack from 'webpack';
-import { regexTokenize } from 'belter';
-import type { ChildType, NullableChildType } from 'jsx-pragmatic/src';
+import { regexTokenize } from '@krakenjs/belter';
+import type { ChildType, NullableChildType } from '@krakenjs/jsx-pragmatic/src';
 
 import { HTTP_HEADER, HTTP_CONTENT_TYPE, HTTP_STATUS_CODE, HTTP_CONTENT_DISPOSITION } from '../config';
 import type { ExpressRequest, ExpressResponse, LoggerType, LoggerPayload } from '../types';

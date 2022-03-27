@@ -1,6 +1,6 @@
 /* @flow */
 
-import { poll } from 'grabthar';
+import { poll } from '@krakenjs/grabthar';
 
 import type { CacheType } from './types';
 import type { LoggerBufferType } from './lib';
