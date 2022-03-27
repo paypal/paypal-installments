@@ -31,21 +31,21 @@ function getSmartWebpackConfig({ entry, env, filename, minify = true, debug = fa
     });
 }
 
-export const WEBPACK_CONFIG_INSTALLMENTS = getSmartWebpackConfig({
+export const WEBPACK_CONFIG_INSTALLMENTS : Object = getSmartWebpackConfig({
     entry:    'src/ui',
     filename: 'installments',
     minify:   false,
     vars:     globals
 });
 
-export const WEBPACK_CONFIG_INSTALLMENTS_MIN = getSmartWebpackConfig({
+export const WEBPACK_CONFIG_INSTALLMENTS_MIN : Object = getSmartWebpackConfig({
     entry:    'src/ui',
     filename: 'installments',
     minify:   true,
     vars:     globals
 });
 
-export const WEBPACK_CONFIG_INSTALLMENTS_DEBUG = getSmartWebpackConfig({
+export const WEBPACK_CONFIG_INSTALLMENTS_DEBUG : Object = getSmartWebpackConfig({
     entry:    'src/ui',
     filename: 'installments',
     debug:    true,
@@ -53,7 +53,7 @@ export const WEBPACK_CONFIG_INSTALLMENTS_DEBUG = getSmartWebpackConfig({
     vars:     globals
 });
 
-export const WEBPACK_CONFIG_TEST = getWebpackConfig({
+export const WEBPACK_CONFIG_TEST : Object = getWebpackConfig({
     entry:      `${ __dirname }/src/ui`,
     modulename: MODULE_NAME,
     test:       true,

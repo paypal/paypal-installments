@@ -1,7 +1,7 @@
 /* @flow */
 /** @jsx h */
 
-import { h, Fragment, type Node } from 'preact';
+import { h, Fragment } from 'preact';
 import { useState } from 'preact/hooks';
 
 import type { InstallmentsData, ContentType } from '../types';
@@ -13,10 +13,10 @@ type InstallmentsProps = {|
     content : ContentType
 |};
 
-export function Installments({ data, cspNonce, close, content } : InstallmentsProps) : Node {
+export function Installments({ data, cspNonce, close, content } : InstallmentsProps) : any {
     const [ selectedOption, setSelectedOption ] = useState(null);
     const [ selectedIndex, setSelectedIndex ] = useState(null);
-    
+
     const selectOption = (event, option, index) => {
         event.preventDefault();
         setSelectedOption(option);
@@ -29,7 +29,7 @@ export function Installments({ data, cspNonce, close, content } : InstallmentsPr
         close();
         return data.onPay(selectedOption);
     };
-    
+
     const closeInstallments = () => {
         close();
         return data.onClose();
@@ -128,7 +128,7 @@ export function Installments({ data, cspNonce, close, content } : InstallmentsPr
                         text-align: center;
                         padding: 0 10px;
                     }
-                    
+
                     .installments .btn-container {
                         text-align: center;
                         padding: 15px;
@@ -152,7 +152,7 @@ export function Installments({ data, cspNonce, close, content } : InstallmentsPr
                     }
                     .installments .pay-btn:active,
                     .installments .pay-btn:focus {
-                        text-decoration: underline;                    
+                        text-decoration: underline;
                     }
                     .installments .pay-btn .amount{
                         margin-left:5px;
@@ -171,7 +171,7 @@ export function Installments({ data, cspNonce, close, content } : InstallmentsPr
                     .installments .close-btn:hover {
                         opacity: 1;
                     }
-                    .installments .close-btn:before, 
+                    .installments .close-btn:before,
                     .installments .close-btn:after {
                         position: absolute;
                         left: 12px;

@@ -27,7 +27,9 @@ export type ZoidComponent<P> = {|
 |};
 
 export type InstallmentsOption = {|
-    term : string,
+    // eslint-disable-next-line no-warning-comments
+    // TODO: term should be only string but compared to index in jsx. investigate old code paths
+    term : string | number,
     intervalDuration : string,
     percent? : string,
     amount : string,
