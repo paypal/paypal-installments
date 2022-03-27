@@ -13,7 +13,7 @@ PayPal Installments
 [version-badge]: https://img.shields.io/npm/v/@paypal/installments.svg?style=flat-square
 [package]: https://www.npmjs.com/package/@paypal/installments
 [license-badge]: https://img.shields.io/npm/l/@paypal/installments.svg?style=flat-square
-[license]: https://github.com/paypal/paypal-installments/blob/main/LICENSE
+[license]: https://github.com/paypal/paypal-installments/blob/master/LICENSE
 
 PayPal Installments application, including:
 
