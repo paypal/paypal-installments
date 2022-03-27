@@ -1,6 +1,7 @@
 {
   "name": "@paypal/installments",
-  "version": "1.0.4", "description": "PayPal Installments",
+  "version": "1.0.4",
+  "description": "PayPal Installments",
   "main": "index.js",
   "scripts": {
     "babel": "babel ./server --ignore=node_modules --out-dir ./server",
