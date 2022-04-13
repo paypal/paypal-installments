@@ -1,7 +1,7 @@
 /* @flow */
 
-import { ZalgoPromise } from 'zalgo-promise/src';
-import { memoize } from 'belter/src';
+import { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
+import { memoize } from '@krakenjs/belter/src';
 
 import type { InstallmentsData, InstallmentsFlowType } from '../types';
 

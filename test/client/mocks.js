@@ -1,5 +1,5 @@
 /* @flow */
-import { ZalgoPromise } from 'zalgo-promise';
+import { ZalgoPromise } from '@krakenjs/zalgo-promise';
 
 import type { ZoidComponentInstance, InstallmentsFlowProps } from '../../src/types';
 

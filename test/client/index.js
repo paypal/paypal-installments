@@ -1,6 +1,6 @@
 /* @flow */
 const { setupInstallments } = require('../../src/ui')
-import { wrapPromise } from 'belter/src';
+import { wrapPromise } from '@krakenjs/belter/src';
 
 import { setupMocks, getContent, getCspNonce, setData } from './mocks';
 

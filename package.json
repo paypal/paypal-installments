@@ -52,22 +52,23 @@
   ],
   "readmeFilename": "README.md",
   "dependencies": {
+    "@krakenjs/beaver-logger": "^5.0.0",
+    "@krakenjs/belter": "^2.0.0",
+    "@krakenjs/cross-domain-utils": "^3.0.0",
+    "@krakenjs/grabthar": "^5.0.0",
+    "@krakenjs/zalgo-promise": "^2.0.0",
     "@paypal/sdk-client": "^4.0.122",
     "@paypal/sdk-constants": "^1.0.75",
-    "belter": "^1.0.16",
-    "cross-domain-utils": "^2.0.27",
-    "zalgo-promise": "^1.0.28",
     "preact": "^10",
-    "typed-graphqlify": "^2.2.3",
-    "grabthar": "^4"
+    "typed-graphqlify": "^2.2.3"
   },
   "devDependencies": {
+    "@krakenjs/grumbler-scripts": "^6.0.2",
+    "@krakenjs/sync-browser-mocks": "^3.0.0",
+    "@krakenjs/webpack-mem-compile": "^2.0.1",
     "babel-core": "^7.0.0-bridge.0",
     "cheerio": "^1.0.0-rc.3",
     "flow-bin": "0.135.0",
-    "grumbler-scripts": "^3",
-    "mocha": "^4",
-    "webpack-mem-compile": "^1.0.2",
-    "sync-browser-mocks": "^2.0.0"
+    "mocha": "^4"
   }
 }

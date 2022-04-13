@@ -1,8 +1,8 @@
 /* @flow */
 
-import { ZalgoPromise } from 'zalgo-promise/src';
+import { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
 import { FPTI_KEY, COUNTRY } from '@paypal/sdk-constants/src';
-import { stringifyError } from 'belter/src';
+import { stringifyError } from '@krakenjs/belter/src';
 
 import type { InstallmentsFlowType } from '../types';
 import { getLogger as getFlowLogger, enableLoadingSpinner, disableLoadingSpinner } from '../lib';
@@ -30,7 +30,7 @@ export function initiateInstallments({ clientID, Installments, paymentMethodID, 
         token:              orderID,
         buyerAccessToken:   accessToken
     };
-    
+
     return getInstallments(inputs).then((installmentsResponse) => {
         if (installmentsResponse && installmentsResponse.getInstallmentsForVaultedToken) {
             const installmentsData = installmentsResponse.getInstallmentsForVaultedToken;
@@ -71,7 +71,7 @@ export function initiateInstallments({ clientID, Installments, paymentMethodID, 
                     cartAmount,
                     onPay:   (selectedInstallment) => {
                         enableLoadingSpinner(button);
-                        
+
                         getLogger()
                             .info(`installments_pay_button_clicked_${ selectedInstallment ? selectedInstallment.term : '' }x`)
                             .track({
@@ -137,7 +137,7 @@ export function initiateInstallments({ clientID, Installments, paymentMethodID, 
                     [FPTI_KEY.CONTEXT_ID]:   orderID,
                     err:                     stringifyError(err)
                 }).flush();
-            
+
             // fallback without installments
             return onPay(orderID);
         });

@@ -1,7 +1,7 @@
 /* @flow */
 
 import { unpackSDKMeta } from '@paypal/sdk-client';
-import { undotify } from 'belter';
+import { undotify } from '@krakenjs/belter';
 
 import type { ExpressRequest, ExpressResponse, LoggerType, CacheType } from '../types';
 import { startWatchers } from '../watchers';
@@ -154,7 +154,7 @@ export function sdkMiddleware({ logger = defaultLogger, cache } : SDKMiddlewareO
             console.error(err.stack ? err.stack : err); // eslint-disable-line no-console
             logger.error(req, EVENT.ERROR, { err: err.stack ? err.stack : err.toString() });
             return serverErrorResponse(res, err.stack ? err.stack : err.toString());
-            
+
         } finally {
             logBuffer.flush(req);
         }
