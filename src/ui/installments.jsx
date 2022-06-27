@@ -1,50 +1,55 @@
 /* @flow */
 /** @jsx h */
 
-import { h, Fragment } from 'preact';
-import { useState } from 'preact/hooks';
+import { h, Fragment } from "preact";
+import { useState } from "preact/hooks";
 
-import type { InstallmentsData, ContentType } from '../types';
+import type { InstallmentsData, ContentType } from "../types";
 
 type InstallmentsProps = {|
-    cspNonce : string,
-    data : InstallmentsData,
-    close : () => void,
-    content : ContentType
+  cspNonce: string,
+  data: InstallmentsData,
+  close: () => void,
+  content: ContentType,
 |};
 
-export function Installments({ data, cspNonce, close, content } : InstallmentsProps) : any {
-    const [ selectedOption, setSelectedOption ] = useState(null);
-    const [ selectedIndex, setSelectedIndex ] = useState(null);
+export function Installments({
+  data,
+  cspNonce,
+  close,
+  content,
+}: InstallmentsProps): any {
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
-    const selectOption = (event, option, index) => {
-        event.preventDefault();
-        setSelectedOption(option);
-        setSelectedIndex(index);
+  const selectOption = (event, option, index) => {
+    event.preventDefault();
+    setSelectedOption(option);
+    setSelectedIndex(index);
 
-        return option.onSelect(option);
-    };
+    return option.onSelect(option);
+  };
 
-    const onPay = () => {
-        close();
-        return data.onPay(selectedOption);
-    };
+  const onPay = () => {
+    close();
+    return data.onPay(selectedOption);
+  };
 
-    const closeInstallments = () => {
-        close();
-        return data.onClose();
-    };
+  const closeInstallments = () => {
+    close();
+    return data.onClose();
+  };
 
-    const renderContent = (line, dataObj) => {
-        return line.replace(/{([^{]+)}/g, (match, key) => {
-            return dataObj[key] !== undefined ? dataObj[key] : '';
-        });
-    };
+  const renderContent = (line, dataObj) => {
+    return line.replace(/{([^{]+)}/g, (match, key) => {
+      return dataObj[key] !== undefined ? dataObj[key] : "";
+    });
+  };
 
-    return (
-        <Fragment>
-            <style nonce={ cspNonce }>
-                {`
+  return (
+    <Fragment>
+      <style nonce={cspNonce}>
+        {`
                     .installments {
                         outline-style: none;
                         padding-bottom: 20px;
@@ -186,47 +191,66 @@ export function Installments({ data, cspNonce, close, content } : InstallmentsPr
                         transform: rotate(-45deg);
                     }
                 `}
-            </style>
+      </style>
 
-            <div class='installments'>
-                <button class="close-btn" onClick={ closeInstallments } aria-label="close" type="button" />
-                <div className="header">
-                    <h3 className="title">{content.header}</h3>
-                </div>
-                <ul id="installments-list">
-                    {
-                        data.options.map((option, i) => {
-                            return (
-                                <li className={ (selectedIndex === i) ? 'selected' : '' }>
-                                    <button type="button" class="list-wrap" onClick={ (event) => { selectOption(event, option, i); } }>
-                                        <div className="months">{ option.term }x</div>
-                                        <div className="details">
-                                            { option.term === 1 ?
-                                                <span className="price">
-                                                    { option.percent ?
-                                                        renderContent(content.monthly1xWithDiscount, { percent: Number(option.percent) }) :
-                                                        content.monthly1x }
-                                                </span> :
-                                                <span className="price">{ renderContent(content.monthly, option) }</span> }
-                                            <span className="total">
-                                                { option.term === 1 && option.percent ?
-                                                    renderContent(content.totalWithDiscount, option) :
-                                                    renderContent(content.totalAmount, option) }
-                                            </span>
-                                        </div>
-                                    </button>
-                                </li>
-                            );
-                        })
-                    }
-                </ul>
-                <div className="btn-container">
-                    <button type="button" className="pay-btn" onClick={ onPay }>
-                        { renderContent(content.payLabel, { payAmount: selectedOption ? selectedOption.totalAmount : data.cartAmount }) }
-                    </button>
-                </div>
-                <div className="agree-info">{ content.disclaimer }</div>
-            </div>
-        </Fragment>
-    );
+      <div class="installments">
+        <button
+          class="close-btn"
+          onClick={closeInstallments}
+          aria-label="close"
+          type="button"
+        />
+        <div className="header">
+          <h3 className="title">{content.header}</h3>
+        </div>
+        <ul id="installments-list">
+          {data.options.map((option, i) => {
+            return (
+              <li className={selectedIndex === i ? "selected" : ""}>
+                <button
+                  type="button"
+                  class="list-wrap"
+                  onClick={(event) => {
+                    selectOption(event, option, i);
+                  }}
+                >
+                  <div className="months">{option.term}x</div>
+                  <div className="details">
+                    {option.term === 1 ? (
+                      <span className="price">
+                        {option.percent
+                          ? renderContent(content.monthly1xWithDiscount, {
+                              percent: Number(option.percent),
+                            })
+                          : content.monthly1x}
+                      </span>
+                    ) : (
+                      <span className="price">
+                        {renderContent(content.monthly, option)}
+                      </span>
+                    )}
+                    <span className="total">
+                      {option.term === 1 && option.percent
+                        ? renderContent(content.totalWithDiscount, option)
+                        : renderContent(content.totalAmount, option)}
+                    </span>
+                  </div>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+        <div className="btn-container">
+          <button type="button" className="pay-btn" onClick={onPay}>
+            {renderContent(content.payLabel, {
+              payAmount: selectedOption
+                ? selectedOption.totalAmount
+                : data.cartAmount,
+            })}
+          </button>
+        </div>
+        <div className="agree-info">{content.disclaimer}</div>
+      </div>
+    </Fragment>
+  );
 }

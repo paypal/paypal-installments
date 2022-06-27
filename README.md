@@ -1,5 +1,4 @@
-PayPal Installments
--------------------------
+## PayPal Installments
 
 [![build status][build-badge]][build]
 [![code coverage][coverage-badge]][coverage]
@@ -20,9 +19,7 @@ PayPal Installments application, including:
 - Server-side middleware to return the client UI
 - Interface to initiate the flow
 
-
-Quick Start
------------
+## Quick Start
 
 #### Installing
 

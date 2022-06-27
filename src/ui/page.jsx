@@ -1,33 +1,33 @@
 /* @flow */
 /** @jsx h */
 
-import { h, render, Fragment, type Node } from 'preact';
-import { useState, useEffect } from 'preact/hooks';
+import { h, render, Fragment, type Node } from "preact";
+import { useState, useEffect } from "preact/hooks";
 
-import type { ContentType } from '../types';
-import { getBody } from '../lib';
+import type { ContentType } from "../types";
+import { getBody } from "../lib";
 
-import { Installments } from './installments';
-import { useXProps } from './hooks';
+import { Installments } from "./installments";
+import { useXProps } from "./hooks";
 
 type PageProps = {|
-    cspNonce : string,
-    content : ContentType
+  cspNonce: string,
+  content: ContentType,
 |};
 
-function Page({ cspNonce, content } : PageProps) : mixed {
-    const { data, close } = useXProps();
-    const [ visible, setVisible ] = useState(false);
+function Page({ cspNonce, content }: PageProps): mixed {
+  const { data, close } = useXProps();
+  const [visible, setVisible] = useState(false);
 
-    useEffect(() => {
-        const hasOptions = Boolean(data && data.options && data.options.length);
-        setVisible(hasOptions);
-    }, [ data ]);
+  useEffect(() => {
+    const hasOptions = Boolean(data && data.options && data.options.length);
+    setVisible(hasOptions);
+  }, [data]);
 
-    return (
-        <Fragment>
-            <style nonce={ cspNonce }>
-                {`
+  return (
+    <Fragment>
+      <style nonce={cspNonce}>
+        {`
                     * {
                         box-sizing: border-box;
                     }
@@ -44,26 +44,25 @@ function Page({ cspNonce, content } : PageProps) : mixed {
                         overflow:auto;
                     }
                 `}
-            </style>
+      </style>
 
-            {
-                (visible)
-                    ? <Installments
-                        data={ data }
-                        cspNonce={ cspNonce }
-                        close={ close }
-                        content={ content } />
-                    : null
-            }
-        </Fragment>
-    );
+      {visible ? (
+        <Installments
+          data={data}
+          cspNonce={cspNonce}
+          close={close}
+          content={content}
+        />
+      ) : null}
+    </Fragment>
+  );
 }
 
 type SetupOptions = {|
-    cspNonce : string,
-    content : ContentType
+  cspNonce: string,
+  content: ContentType,
 |};
 
-export function setupInstallments({ cspNonce, content } : SetupOptions) {
-    render(<Page cspNonce={ cspNonce } content={ content } />, getBody());
+export function setupInstallments({ cspNonce, content }: SetupOptions) {
+  render(<Page cspNonce={cspNonce} content={content} />, getBody());
 }
