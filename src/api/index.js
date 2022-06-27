@@ -1,40 +1,44 @@
 /* @flow */
 
-import type { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
+import type { ZalgoPromise } from "@krakenjs/zalgo-promise/src";
 
-import { HEADERS } from '../constants';
+import { HEADERS } from "../constants";
 
-import { callGraphQL } from './api';
+import { callGraphQL } from "./api";
 
 type getInstallmentsOptions = {|
-  vaultedToken : string,
-  token : string,
-  buyerAccessToken : string
+  vaultedToken: string,
+  token: string,
+  buyerAccessToken: string,
 |};
 
 type InstallmentValue = {|
-  currencyCode : string,
-  currencyFormatSymbolISOCurrency : string,
-  currencyValue : string
+  currencyCode: string,
+  currencyFormatSymbolISOCurrency: string,
+  currencyValue: string,
 |};
 
 type getInstallmentsInfo = {|
-  getInstallmentsForVaultedToken : $ReadOnlyArray<{|
-      discount? : {|
-          amount : InstallmentValue,
-          percentage : string
-      |},
-      monthlyPayment : InstallmentValue,
-      totalCost : InstallmentValue,
-      term : string,
-      intervalDuration : string
-  |}>
+  getInstallmentsForVaultedToken: $ReadOnlyArray<{|
+    discount?: {|
+      amount: InstallmentValue,
+      percentage: string,
+    |},
+    monthlyPayment: InstallmentValue,
+    totalCost: InstallmentValue,
+    term: string,
+    intervalDuration: string,
+  |}>,
 |};
 
-export const getInstallments = ({ vaultedToken, token, buyerAccessToken } : getInstallmentsOptions) : ZalgoPromise<getInstallmentsInfo> => {
-    return callGraphQL({
-        name:  'getInstallmentsForVaultedToken',
-        query: `
+export const getInstallments = ({
+  vaultedToken,
+  token,
+  buyerAccessToken,
+}: getInstallmentsOptions): ZalgoPromise<getInstallmentsInfo> => {
+  return callGraphQL({
+    name: "getInstallmentsForVaultedToken",
+    query: `
             query getInstallmentsForVaultedToken(
                 $vaultedToken: String!
                 $token: String!
@@ -66,12 +70,12 @@ export const getInstallments = ({ vaultedToken, token, buyerAccessToken } : getI
                 }
             }
         `,
-        variables: {
-            vaultedToken,
-            token
-        },
-        headers:   {
-            [HEADERS.ACCESS_TOKEN]: buyerAccessToken
-        }
-    });
+    variables: {
+      vaultedToken,
+      token,
+    },
+    headers: {
+      [HEADERS.ACCESS_TOKEN]: buyerAccessToken,
+    },
+  });
 };
